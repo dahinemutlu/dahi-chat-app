@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Chat</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <section class="login-dark">
+        <div id="chat" style="height: 220px;">
+            <div th:each="chatMessage : ${chatMessages}">
+                <span th:text="${chatMessage.username}">Username</span>: <span th:text="${chatMessage.message}">Hello, world!</span>
+            </div>
+        </div>
+        <form th:object="${chatForm}" action="#" th:action="@{/chat}" method="POST">
+            <div class="mb-3"><input class="form-control" type="text" th:field="*{message}" placeholder="Mesaj"></div>
+            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Gönder</button></div>
+            <div class="mb-3">
+                <select class="form-select" th:field="*{messageType}">
+                    <option
+                            th:each="type : ${allMessageTypes}"
+                            th:value="${type}"
+                            th:text="${type}"
+                    >
+                        Say
+                    </option>
+                </select>
+        </form>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

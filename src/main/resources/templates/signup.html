@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <section class="login-dark">
+        <form action="#" th:action="@{/signup}" method="POST">
+            <h2 class="visually-hidden">Login Form</h2>
+            <div class="illustration"><i class="far fa-address-book"></i></div>
+            <div class="mb-3"><input class="form-control" type="text" placeholder="İsim" name="firstName"><input class="form-control" type="text" placeholder="Soyisim" name="lastName"><input class="form-control" type="text" placeholder="Kullanıcı Adı" name="username"><input class="form-control" type="password" name="password" placeholder="Şifre"></div>
+            <div class="alert alert-danger" th:if="${signupError}" role="alert"><span>Kullanıcı adı zaten mevcut</span></div>
+            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Kayıt Ol</button></div>
+            <div class="alert alert-success" th:if="${signupSuccess}" role="alert"><span>Kayıt başarılı!</span></div><a class="forgot" href="login">Giriş yapmak için tıklayınız</a>
+        </form>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
